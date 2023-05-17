@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "689354934333",
+    "firebase_url": "https://blogbox-92168-default-rtdb.firebaseio.com",
+    "project_id": "blogbox-92168",
+    "storage_bucket": "blogbox-92168.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689354934333:android:cfda6188464782b5588254",
+        "android_client_info": {
+          "package_name": "com.example.news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689354934333-8vbr1h675t6fi5qoele411bhru4bgefo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8Inh02GtyzZTK2yyQChvrd7YX3L35a-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689354934333-8vbr1h675t6fi5qoele411bhru4bgefo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
