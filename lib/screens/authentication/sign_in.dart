@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:news/services/authenticate.dart';
 
 import '../../widgets/custom_buttom.dart';
 
@@ -12,6 +11,14 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final AuthService _authService = AuthService();
+  login() {
+    _authService.signInUsingEmailPassword(
+        _emailController.text, _passwordController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +28,13 @@ class _SignInState extends State<SignIn> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
+              const Center(
                   child: Text(
                 "BLOGBOX",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 82, 32, 220),
                 ),
               )),
               SizedBox(height: 60),
@@ -40,6 +48,7 @@ class _SignInState extends State<SignIn> {
               ),
               const SizedBox(height: 30),
               TextFormField(
+                controller: _emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -54,6 +63,7 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 40),
               TextFormField(
+                controller: _passwordController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -84,16 +94,9 @@ class _SignInState extends State<SignIn> {
                   )
                 ],
               ),
-              SizedBox(height: 50),
-              const Center(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 30, right: 30),
-                  child: CustomButton(
-                    buttonText: "SIGN IN",
-                  ),
-                ),
-              ),
-              SizedBox(height: 40),
+              const SizedBox(height: 50),
+              CustomButton(buttonText: "SIGN IN", onTap: login),
+              const SizedBox(height: 40),
               const Center(
                 child: Text(
                   "OR",

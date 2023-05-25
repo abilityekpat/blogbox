@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
+import '../../services/authenticate.dart';
 import '../../widgets/custom_buttom.dart';
 
 class SignUp extends StatefulWidget {
@@ -12,6 +10,16 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _fullnameController = TextEditingController();
+  final _confirmpassword = TextEditingController();
+  final AuthService _authService = AuthService();
+  login() {
+    _authService.signUpWithEmailAndPassword(
+        _emailController.text, _passwordController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +41,7 @@ class _SignUpState extends State<SignUp> {
               ),
               const SizedBox(height: 30),
               TextFormField(
+                controller: _fullnameController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -47,6 +56,7 @@ class _SignUpState extends State<SignUp> {
               ),
               const SizedBox(height: 20),
               TextFormField(
+                controller: _emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -61,6 +71,7 @@ class _SignUpState extends State<SignUp> {
               ),
               SizedBox(height: 20),
               TextFormField(
+                controller: _passwordController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -75,6 +86,7 @@ class _SignUpState extends State<SignUp> {
               ),
               SizedBox(height: 20),
               TextFormField(
+                controller: _confirmpassword,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -106,14 +118,11 @@ class _SignUpState extends State<SignUp> {
                 ],
               ),
               SizedBox(height: 40),
-              const Center(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 30, right: 30),
-                  child: CustomButton(
-                    buttonText: "SIGN UP",
-                  ),
-                ),
-              ),
+              CustomButton(
+                  buttonText: "SIGN UP",
+                  onTap: () {
+                    return null;
+                  }),
               SizedBox(height: 40),
               const Center(
                 child: Text(
